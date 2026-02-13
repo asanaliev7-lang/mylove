@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>14 февраля 💘</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- фавикон -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <meta name="theme-color" content="#050816" />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-card: rgba(15, 23, 42, 0.94);
+      --accent: #ec4899;
+      --accent-soft: rgba(236, 72, 153, 0.08);
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --radius-lg: 18px;
+      --radius-full: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #1f2937 0, transparent 55%),
+        radial-gradient(circle at bottom, #020617 0, transparent 60%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 14px;
+    }
+
+    .container {
+      max-width: 980px;
+      width: 100%;
+      background: radial-gradient(circle at top left, #020617 0, #020617 40%, #020617ee 100%);
+      border-radius: 20px;
+      padding: 18px 14px 22px;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      backdrop-filter: blur(26px);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 18px;
+      padding: 0 6px;
+    }
+
+    header h1 {
+      font-size: clamp(24px, 6vw, 34px);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    header h1 span {
+      background: linear-gradient(120deg, #ec4899, #f97316, #eab308);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    section {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .section-title {
+      font-size: 15px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span.emoji {
+      font-size: 18px;
+    }
+
+    .section-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ===== ГАЛЕРЕЯ-СЛАЙДЕР ===== */
+    .gallery-block {
+      background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(15,23,42,0.98));
+    }
+
+    .gallery-slider {
+      position: relative;
+      margin-top: 10px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: #020617;
+    }
+
+    .gallery-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-slide {
+      min-width: 100%;
+      position: relative;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #020617;
+    }
+
+    @media (min-width: 640px) {
+      .gallery-slide {
+        height: 380px;
+      }
+    }
+
+    .gallery-slide img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      background: #020617;
+    }
+
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(15, 23, 42, 0.7);
+      color: #e5e7eb;
+      border-radius: 999px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    }
+
+    .gallery-nav:active {
+      transform: translateY(-50%) scale(0.96);
+    }
+
+    .gallery-nav.prev { left: 8px; }
+    .gallery-nav.next { right: 8px; }
+
+    .gallery-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.8);
+    }
+
+    .gallery-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148,163,184,0.8);
+      cursor: pointer;
+    }
+
+    .gallery-dot.active {
+      width: 12px;
+      background: #ec4899;
+    }
+
+    /* Лайтбокс */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 40;
+      padding: 14px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      max-width: min(100vw - 32px, 900px);
+      width: auto;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #020617;
+      border: 1px solid rgba(148,163,184,0.8);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+      position: relative;
+    }
+
+    .lightbox-img-wrapper {
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #020617;
+    }
+
+    .lightbox-img-wrapper img {
+      max-width: 100%;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-top {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .lightbox-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      border: 1px solid rgba(148,163,184,0.7);
+    }
+
+    .lightbox-btn:active { transform: translateY(1px); }
+
+    /* ===== Шапка игр ===== */
+    .games-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--accent-soft);
+      color: var(--text-muted);
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    /* ===== Карточки игр ===== */
+    .game-card {
+      margin-top: 4px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .game-header {
+      width: 100%;
+      padding: 10px 14px;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .game-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .game-header-left span.emoji { font-size: 18px; }
+
+    .game-header-title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .game-header-title small {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .game-header-icon { font-size: 14px; opacity: 0.8; }
+
+    .game-body {
+      padding: 0 14px 14px;
+      border-top: 1px solid rgba(148,163,184,0.25);
+      display: none;
+    }
+
+    .game-card.open .game-body { display: block; }
+
+    /* ===== Игра 1: memory ===== */
+    .memory-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .memory-info {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .memory-grid {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .memory-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .card { padding-bottom: 105%; }
+      .card-front { font-size: 18px; }
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      padding-bottom: 130%;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      overflow: hidden;
+      background: #020617;
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s ease;
+    }
+
+    .card-front {
+      font-size: 22px;
+      color: var(--text-muted);
+      background: radial-gradient(circle at top, #020617, #020617, #020617);
+    }
+
+    .card-back {
+      opacity: 0;
+      background: #020617;
+    }
+
+    .card-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card.flipped .card-front,
+    .card.matched .card-front {
+      opacity: 0;
+    }
+
+    .card.flipped .card-back,
+    .card.matched .card-back {
+      opacity: 1;
+    }
+
+    .memory-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    button.btn {
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 7px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ec4899, #f97316);
+      color: white;
+      font-weight: 500;
+      box-shadow: 0 8px 20px rgba(248, 113, 113, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    button.btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 5px 14px rgba(248, 113, 113, 0.4);
+    }
+
+    .memory-message {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #a5b4fc;
+    }
+
+    /* ===== Игра 2: квиз ===== */
+    .quiz-intro {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .quiz-result {
+      font-size: 12px;
+      color: #a5b4fc;
+    }
+
+    .quiz-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.94);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 45;
+      padding: 16px;
+    }
+
+    .quiz-modal.open { display: flex; }
+
+    .quiz-box {
+      max-width: 600px;
+      width: 100%;
+      background: #020617;
+      border-radius: 18px;
+      padding: 16px 18px 18px;
+      border: 1px solid rgba(148,163,184,0.85);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.9);
+      position: relative;
+    }
+
+    .quiz-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      border: none;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      border: 1px solid rgba(15,23,42,0.8);
+    }
+
+    .quiz-close:active { transform: translateY(1px); }
+
+    .quiz-step {
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+
+    .quiz-question {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .quiz-options label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .quiz-options input {
+      accent-color: #ec4899;
+    }
+
+    .quiz-step-hint {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #f97316;
+    }
+
+    .quiz-next-btn {
+      margin-top: 4px;
+    }
+
+    .quiz-correct-hint {
+      color: #a7f3d0;
+      font-weight: 500;
+    }
+
+    .quiz-correct-hint::before {
+      content: "➜ ";
+      color: #22c55e;
+    }
+
+    /* ===== Игра 3: фраза ===== */
+    .phrase-intro {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .phrase-result {
+      font-size: 12px;
+      color: #a5b4fc;
+    }
+
+    .phrase-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.94);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 45;
+      padding: 16px;
+    }
+
+    .phrase-modal.open { display: flex; }
+
+    .phrase-box {
+      max-width: 600px;
+      width: 100%;
+      background: #020617;
+      border-radius: 18px;
+      padding: 16px 18px 18px;
+      border: 1px solid rgba(148,163,184,0.85);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.9);
+      position: relative;
+    }
+
+    .phrase-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      border: none;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      border: 1px solid rgba(15,23,42,0.8);
+    }
+
+    .phrase-close:active { transform: translateY(1px); }
+
+    .phrase {
+      margin-top: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .phrase-info {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .phrase-target {
+      min-height: 40px;
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .phrase-words {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 5px 10px;
+      font-size: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .chip:active { transform: translateY(1px); }
+
+    .chip-used { opacity: 0.4; }
+
+    .chip-target {
+      background: linear-gradient(135deg, rgba(236,72,153,0.16), rgba(59,130,246,0.18));
+      border-color: rgba(236,72,153,0.7);
+    }
+
+    .chip-correct {
+      background: rgba(34,197,94,0.15);
+      border-color: #22c55e;
+      color: #bbf7d0;
+    }
+
+    .chip-wrong {
+      background: rgba(248,113,113,0.14);
+      border-color: #f97316;
+      color: #fecaca;
+    }
+
+    .phrase-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== Карточка письма ===== */
+    .letter-section {
+      margin-top: 4px;
+      position: relative;
+      cursor: default;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .letter-section.unlocked {
+      border-color: #ec4899;
+      box-shadow: 0 10px 40px rgba(236,72,153,0.35);
+      cursor: pointer;
+      transform: translateY(-1px);
+    }
+
+    .letter-section.unlocked:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 45px rgba(236,72,153,0.4);
+    }
+
+    .prize-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(236, 72, 153, 0.12);
+      border: 1px solid rgba(249, 115, 22, 0.7);
+      color: #fed7aa;
+      margin-bottom: 6px;
+    }
+
+    .letter-hint {
+      font-size: 12px;
+      color: #f97316;
+      margin-bottom: 2px;
+    }
+
+    /* ===== Письмо: конверт ===== */
+
+    @keyframes envelopePop {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes flapOpen {
+      0% {
+        transform: rotateX(0deg);
+      }
+      100% {
+        transform: rotateX(-170deg);
+      }
+    }
+
+    @keyframes letterRise {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, 30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    .letter-overlay {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(15,23,42,0.98), rgba(15,23,42,0.96)),
+        radial-gradient(circle at bottom, rgba(15,23,42,0.94), rgba(15,23,42,0.98));
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+      padding: 16px;
+    }
+
+    .letter-overlay.open {
+      display: flex;
+    }
+
+    .envelope {
+      position: relative;
+      width: min(90vw, 520px);
+      height: min(70vh, 360px);
+      transform-origin: center;
+      opacity: 0;
+      transform: translateY(40px) scale(0.8);
+    }
+
+    .letter-overlay.open .envelope {
+      animation: envelopePop 0.45s ease-out forwards;
+    }
+
+    .envelope-shadow {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: -26px;
+      height: 40px;
+      background: radial-gradient(circle at center, rgba(0,0,0,0.7), transparent 70%);
+      filter: blur(8px);
+      opacity: 0.9;
+    }
+
+    .envelope-body {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 62%;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #0f172a, #020617);
+      border: 1px solid rgba(148,163,184,0.7);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.85);
+      overflow: hidden;
+    }
+
+    .envelope-body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(236,72,153,0.15), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .envelope-flap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 52%;
+      transform-origin: top center;
+      transform-style: preserve-3d;
+      background: linear-gradient(135deg, #111827, #020617);
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.8);
+      border-bottom: none;
+      clip-path: polygon(0% 0%, 100% 0%, 50% 88%);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+      z-index: 3;
+    }
+
+    .envelope-flap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(236,72,153,0.35), transparent 65%);
+      opacity: 0.8;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .letter-overlay.open .envelope-flap {
+      animation: flapOpen 0.7s ease-out 0.3s forwards;
+    }
+
+    .letter-card {
+      position: absolute;
+      left: 50%;
+      top: 10%;
+      width: 86%;
+      height: 78%;
+      transform: translate(-50%, 30px);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at top, rgba(248,250,252,0.12), transparent 60%),
+        radial-gradient(circle at bottom, rgba(15,23,42,0.9), #020617);
+      border: 1px solid rgba(148,163,184,0.85);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.9);
+      padding: 18px 18px 20px;
+      overflow: hidden;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .letter-overlay.open .letter-card {
+      animation: letterRise 0.7s ease-out 0.45s forwards;
+    }
+
+    .letter-card-inner {
+      max-height: 100%;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .letter-card-inner p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+    }
+
+    .letter-card-inner p:first-child {
+      font-weight: 600;
+      font-size: 15px;
+      color: #f9fafb;
+    }
+
+    .letter-card-inner p:last-child {
+      margin-bottom: 0;
+    }
+
+    .letter-close {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      border: none;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      background: rgba(15,23,42,0.96);
+      color: #fefce8;
+      border: 1px solid rgba(15,23,42,0.9);
+      z-index: 4;
+    }
+
+    .letter-close:active { transform: translateY(1px); }
+
+    /* ===== Футер ===== */
+    footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .heart-btn {
+      margin-left: 4px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #f97316;
+      font-size: 13px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    }
+
+    .heart-btn:active {
+      transform: scale(0.9);
+      background: rgba(236,72,153,0.18);
+      box-shadow: 0 0 0 1px rgba(236,72,153,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><span>14 февраля</span> — наш маленький мир</h1>
+      <p>Наши фото, немного игры и одно большое письмо, которое открывается только для тебя 💌</p>
+    </header>
+
+    <main>
+      <!-- 1. Галерея -->
+      <section class="gallery-block">
+        <div class="section-title">
+          <span class="emoji">📸</span>
+          <span>Галерея воспоминаний</span>
+        </div>
+        <p class="section-text">
+          Здесь просто наши фото — листай, вспоминай и улыбайся.
+        </p>
+
+        <div class="gallery-slider">
+          <div class="gallery-track" id="gallery-track"></div>
+          <button class="gallery-nav prev" id="gallery-prev">‹</button>
+          <button class="gallery-nav next" id="gallery-next">›</button>
+          <div class="gallery-dots" id="gallery-dots"></div>
+        </div>
+      </section>
+
+      <!-- шапка игр -->
+      <section>
+        <div class="games-header-row">
+          <div class="section-title" style="margin-bottom:0;">
+            <span class="emoji">🕹️</span>
+            <span>Мини-игры про нас</span>
+          </div>
+          <span class="pill" id="games-progress">Прогресс к письму: 0/3 игр</span>
+        </div>
+      </section>
+
+      <!-- Игра 1 -->
+      <section class="game-card open">
+        <button class="game-header" data-target="game1">
+          <div class="game-header-left">
+            <span class="emoji">🧠</span>
+            <div class="game-header-title">
+              <span>Игра 1 — найди пары</span>
+              <small>Фотки, где мы такие разные и такие свои</small>
+            </div>
+          </div>
+          <span class="game-header-icon">▼</span>
+        </button>
+        <div class="game-body" id="game1">
+          <div class="memory-wrapper">
+            <p class="memory-info">
+              Открывай по две карточки и ищи совпадения. Когда найдёшь все пары — игра считается пройденной.
+            </p>
+
+            <div class="memory-grid" id="memory-grid"></div>
+
+            <div class="memory-controls">
+              <span class="pill" id="memory-tries">Попыток: 0</span>
+              <button class="btn" id="memory-restart">↺ Перемешать карточки</button>
+            </div>
+
+            <div class="memory-message" id="memory-message"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Игра 2 -->
+      <section class="game-card">
+        <button class="game-header" data-target="game2">
+          <div class="game-header-left">
+            <span class="emoji">❓</span>
+            <div class="game-header-title">
+              <span>Игра 2 — мини-квиз про нас</span>
+              <small>Проверка, как хорошо мы чувствуем друг друга</small>
+            </div>
+          </div>
+          <span class="game-header-icon">▼</span>
+        </button>
+        <div class="game-body" id="game2">
+          <div class="quiz-intro">
+            <p>
+              Я заранее выбрал свои ответы, а ты пытаешься угадать, что бы я нажал.
+              Вопросы будут появляться по одному в отдельном окошке.
+            </p>
+            <button class="btn" id="quiz-open">Начать</button>
+            <div class="quiz-result" id="quiz-result"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Игра 3 -->
+      <section class="game-card">
+        <button class="game-header" data-target="game3">
+          <div class="game-header-left">
+            <span class="emoji">🧩</span>
+            <div class="game-header-title">
+              <span>Игра 3 — собери фразу</span>
+              <small>Пять слов, в которых я вижу тебя</small>
+            </div>
+          </div>
+          <span class="game-header-icon">▼</span>
+        </button>
+        <div class="game-body" id="game3">
+          <div class="phrase-intro">
+            <p class="phrase-info">
+              В этой игре спрятаны десять маленьких фраз про нас. Игра откроется в отдельном окошке — собирай каждую фразу из слов внизу.
+            </p>
+            <button class="btn" id="phrase-open">Открыть игру</button>
+            <span class="phrase-result" id="phrase-result"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Письмо-приз -->
+      <section class="letter-section locked" id="letter-section">
+        <div class="section-title">
+          <span class="emoji">💌</span>
+          <span>Письмо после квеста</span>
+        </div>
+        <div class="prize-badge">
+          🎁 Главный приз за три игры
+        </div>
+        <p class="letter-hint" id="letter-hint">
+          Сейчас письмо скрыто. Пройди все три игры хотя бы один раз — и на экране всплывёт конверт с письмом только для тебя.
+          Потом его можно будет открывать в любое время, просто нажимая на этот блок.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      Сделано с любовью
+      <button type="button" id="reset-heart" class="heart-btn">♥</button>
+    </footer>
+  </div>
+
+  <!-- Лайтбокс -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <div class="lightbox-top">
+        <button class="lightbox-btn" id="lightbox-close">✕ Закрыть</button>
+      </div>
+      <div class="lightbox-img-wrapper">
+        <img src="" alt="Фото" id="lightbox-img" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Модалка квиза -->
+  <div class="quiz-modal" id="quiz-modal">
+    <div class="quiz-box">
+      <button class="quiz-close" id="quiz-close">✕</button>
+      <div class="quiz-step" id="quiz-step"></div>
+      <button class="btn quiz-next-btn" id="quiz-next">Дальше</button>
+    </div>
+  </div>
+
+  <!-- Модалка игры с фразой -->
+  <div class="phrase-modal" id="phrase-modal">
+    <div class="phrase-box">
+      <button class="phrase-close" id="phrase-close">✕</button>
+      <div class="phrase">
+        <p class="phrase-info">
+          Нажимай на слова — они будут появляться сверху. Если соберёшь фразу в правильном порядке, уровень засчитается, и появится следующее предложение.
+        </p>
+
+        <div class="phrase-target" id="phrase-target"></div>
+        <div class="phrase-words" id="phrase-words"></div>
+
+        <div class="phrase-bottom-row">
+          <span class="phrase-result" id="phrase-result-modal"></span>
+          <button class="btn" id="phrase-reset">↺ Перемешать слова</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Конверт с письмом -->
+  <div class="letter-overlay" id="letter-overlay">
+    <div class="envelope">
+      <button class="letter-close" id="letter-close">✕</button>
+      <div class="envelope-shadow"></div>
+      <div class="envelope-body"></div>
+      <div class="envelope-flap"></div>
+      <div class="letter-card">
+        <div class="letter-card-inner">
+          <p>Моя любимая,</p>
+
+          <p>
+            я долго собирался с мыслями, прежде чем начать это письмо. Потому что всё, что связано с тобой, требует
+            особой тишины внутри. Ты — не просто человек в моей жизни. Ты стала её частью. Ты стала тем, о ком думают
+            в паузах между делами, кого вспоминают перед сном и чувствуют даже тогда, когда молчат.
+          </p>
+
+          <p>
+            Иногда мне кажется, что ты появилась в моей судьбе не случайно. Будто Вселенная однажды решила, что мне нужен
+            именно такой человек — с твоей улыбкой, твоей нежностью, твоей силой и твоей хрупкостью одновременно. Ты
+            вошла в мою жизнь тихо, без громких слов, но оставила след такой глубины, что я уже не представляю мир без
+            тебя.
+          </p>
+
+          <p>
+            Ты изменила во мне многое. Раньше я смотрел на жизнь иначе — быстрее, проще, поверхностнее. А теперь я учусь
+            замечать детали: как свет ложится на окна, как ветер касается лица, как сердце замирает, когда думаю о тебе.
+            Ты научила меня чувствовать глубже. Ты показала, что любовь — это не только радость, но и смелость быть
+            уязвимым.
+          </p>
+
+          <p>
+            Твоя улыбка — мой самый любимый вид спокойствия. Твой голос — мой внутренний дом. Твой взгляд — место, где
+            хочется остаться подольше. Ты даже не подозреваешь, как сильно влияешь на меня. Иногда достаточно просто
+            вспомнить тебя — и внутри становится теплее.
+          </p>
+
+          <p>
+            Любить тебя — это как стоять у пропасти: немного страшно, потому что можно упасть, можно разбиться, можно
+            потерять равновесие. Но так красиво, что невозможно отступить. Ты разрушила мои сомнения одним своим сиянием.
+            Ты спасла меня даже тогда, когда сама об этом не знала. Ты вошла в мою жизнь словно ангел — освещая светом
+            мои тёмные стороны, согревая там, где давно было холодно.
+          </p>
+
+          <p>
+            Я благодарен тебе за каждый момент. За разговоры до поздней ночи. За твои переживания. За твою искренность.
+            За твою нежность. За твою силу. Ты не идеальна — и именно поэтому настоящая. Мне дорого в тебе всё: и твоя
+            улыбка, и твои сомнения, и твоя усталость, и твои мечты.
+          </p>
+
+          <p>
+            Иногда мне хочется просто сидеть рядом с тобой в тишине, держать твою руку и знать, что мы вместе. Без
+            громких слов. Без обещаний. Просто быть. Потому что рядом с тобой даже молчание становится уютным.
+          </p>
+
+          <p>
+            Я думаю о тебе чаще, чем говорю. Я чувствую больше, чем показываю. Я храню тебя в себе даже тогда, когда мы
+            далеко друг от друга. Ты живёшь в моих мыслях, в моих планах, в моих надеждах. Ты стала частью моих молитв и
+            моих желаний.
+          </p>
+
+          <p>
+            Я не прошу от тебя невозможного. Мне важно лишь одно — чтобы ты была счастлива. Даже если иногда тебе будет
+            тяжело, даже если ты будешь сомневаться в себе — помни, что есть человек, который видит в тебе свет. Человек,
+            который верит в тебя сильнее, чем ты сама. Человек, который готов быть рядом, когда ты устанешь.
+          </p>
+
+          <p>
+            Я не обещаю быть идеальным. Но обещаю быть настоящим. Обещаю слушать тебя. Поддерживать тебя. Беречь тебя.
+            Радоваться твоим победам и быть рядом в твоих слабых моментах. Я хочу идти рядом с тобой — шаг за шагом, день
+            за днём, не торопясь, но уверенно.
+          </p>
+
+          <p>
+            Если однажды тебе станет грустно — вспомни обо мне. Вспомни, что где-то есть сердце, в котором ты живёшь.
+            Вспомни, что ты — чья-то тихая радость, чьё-то вдохновение, чья-то самая тёплая мысль перед сном.
+          </p>
+
+          <p>
+            Ты для меня больше, чем просто любовь.<br />
+            Ты — мой покой.<br />
+            Моя надежда.<br />
+            Моё вдохновение.<br />
+            Мой выбор.
+          </p>
+
+          <p style="margin-top:10px;">
+            Твой<br />
+            Арсен
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const galleryPhotos = [
+      { src: "img/IMG_0014.jpeg", alt: "Мы 1" },
+      { src: "img/IMG_0628.jpeg", alt: "Мы 2" },
+      { src: "img/IMG_0695.jpeg", alt: "Мы 3" },
+      { src: "img/IMG_0987.jpeg", alt: "Мы 4" },
+      { src: "img/IMG_1279.png",  alt: "Мы 5" },
+      { src: "img/IMG_1913.jpeg", alt: "Мы 6" },
+      { src: "img/IMG_2319.jpeg", alt: "Мы 7" },
+      { src: "img/IMG_2399.jpeg", alt: "Мы 8" },
+      { src: "img/IMG_2400.jpeg", alt: "Мы 9" },
+      { src: "img/IMG_3267.jpeg", alt: "Мы 10" },
+      { src: "img/IMG_3299.jpeg", alt: "Мы 11" },
+      { src: "img/IMG_3471.jpeg", alt: "Мы 12" }
+    ];
+
+    // ===== ПРОГРЕСС ИГР / ПИСЬМО =====
+    let memoryDone = false;
+    let quizDone = false;
+    let phraseDone = false;
+    const STORAGE_KEY = "val14_progress_envelope_v3";
+
+    const gamesProgressEl = document.getElementById("games-progress");
+    const letterSection = document.getElementById("letter-section");
+    const letterHint = document.getElementById("letter-hint");
+    const letterOverlay = document.getElementById("letter-overlay");
+    const letterClose = document.getElementById("letter-close");
+    const resetHeartBtn = document.getElementById("reset-heart");
+
+    const INITIAL_LETTER_HINT =
+      "Сейчас письмо скрыто. Пройди все три игры хотя бы один раз — и на экране всплывёт конверт с письмом только для тебя. Потом его можно будет открывать в любое время, просто нажимая на этот блок.";
+
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const data = JSON.parse(raw);
+        memoryDone = !!data.memoryDone;
+        quizDone = !!data.quizDone;
+        phraseDone = !!data.phraseDone;
+      } catch (e) {}
+    }
+
+    function saveProgress() {
+      try {
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify({ memoryDone, quizDone, phraseDone })
+        );
+      } catch (e) {}
+    }
+
+    function showLetter() {
+      letterOverlay.classList.add("open");
+    }
+
+    function updateGamesProgress() {
+      const total = 3;
+      const passed =
+        (memoryDone ? 1 : 0) +
+        (quizDone ? 1 : 0) +
+        (phraseDone ? 1 : 0);
+
+      gamesProgressEl.textContent = `Прогресс к письму: ${passed}/${total} игр`;
+
+      if (passed === total) {
+        letterSection.classList.remove("locked");
+        letterSection.classList.add("unlocked");
+        letterHint.textContent =
+          "Все три игры пройдены 🎉 Конверт с письмом уже открылся и теперь всегда твой. Если захочешь перечитать — просто нажми сюда.";
+        showLetter();
+      }
+      saveProgress();
+    }
+
+    loadProgress();
+
+    function closeLetterOverlay() {
+      letterOverlay.classList.remove("open");
+    }
+
+    letterClose.addEventListener("click", closeLetterOverlay);
+    letterOverlay.addEventListener("click", (e) => {
+      if (e.target === letterOverlay) closeLetterOverlay();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && letterOverlay.classList.contains("open")) {
+        closeLetterOverlay();
+      }
+    });
+
+    letterSection.addEventListener("click", () => {
+      if (!letterSection.classList.contains("unlocked")) return;
+      showLetter();
+    });
+
+    // ===== СЛАЙДЕР ГАЛЕРЕИ + ЛАЙТБОКС =====
+    const galleryTrack = document.getElementById("gallery-track");
+    const galleryDots = document.getElementById("gallery-dots");
+    const galleryPrev = document.getElementById("gallery-prev");
+    const galleryNext = document.getElementById("gallery-next");
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxClose = document.getElementById("lightbox-close");
+
+    let currentSlide = 0;
+    let galleryInterval = null;
+
+    function renderGallery() {
+      galleryTrack.innerHTML = "";
+      galleryDots.innerHTML = "";
+
+      galleryPhotos.forEach((photo, index) => {
+        const slide = document.createElement("div");
+        slide.className = "gallery-slide";
+
+        const img = document.createElement("img");
+        img.src = photo.src;
+        img.alt = photo.alt;
+        img.addEventListener("click", () => {
+          lightboxImg.src = photo.src;
+          lightbox.classList.add("open");
+        });
+
+        slide.appendChild(img);
+        galleryTrack.appendChild(slide);
+
+        const dot = document.createElement("div");
+        dot.className = "gallery-dot";
+        if (index === currentSlide) dot.classList.add("active");
+        dot.addEventListener("click", () => goToSlide(index));
+        galleryDots.appendChild(dot);
+      });
+
+      updateSliderPosition();
+
+      if (!galleryInterval && galleryPhotos.length > 1) {
+        galleryInterval = setInterval(() => {
+          goToSlide(currentSlide + 1);
+        }, 4000);
+      }
+    }
+
+    function updateSliderPosition() {
+      galleryTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      [...galleryDots.children].forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === currentSlide);
+      });
+    }
+
+    function goToSlide(index) {
+      if (index < 0) index = galleryPhotos.length - 1;
+      if (index >= galleryPhotos.length) index = 0;
+      currentSlide = index;
+      updateSliderPosition();
+    }
+
+    galleryPrev.addEventListener("click", () => goToSlide(currentSlide - 1));
+    galleryNext.addEventListener("click", () => goToSlide(currentSlide + 1));
+
+    let startX = null;
+    galleryTrack.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+    galleryTrack.addEventListener("touchend", (e) => {
+      if (startX === null) return;
+      const deltaX = e.changedTouches[0].clientX - startX;
+      if (Math.abs(deltaX) > 40) {
+        if (deltaX < 0) goToSlide(currentSlide + 1);
+        else goToSlide(currentSlide - 1);
+      }
+      startX = null;
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightboxImg.src = "";
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
+
+    renderGallery();
+
+    // ===== Сворачивание игр =====
+    document.querySelectorAll(".game-header").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const card = btn.closest(".game-card");
+        const isOpen = card.classList.contains("open");
+        if (isOpen) {
+          card.classList.remove("open");
+          return;
+        }
+        document
+          .querySelectorAll(".game-card")
+          .forEach((c) => c.classList.remove("open"));
+        card.classList.add("open");
+      });
+    });
+
+    // ===== Игра 1: memory =====
+    const photosForMemory = galleryPhotos.slice(0, 6).map((photo, idx) => ({
+      id: idx + 1,
+      src: photo.src,
+      alt: photo.alt
+    }));
+
+    const memoryGrid = document.getElementById("memory-grid");
+    const triesSpan = document.getElementById("memory-tries");
+    const messageEl = document.getElementById("memory-message");
+    const restartBtn = document.getElementById("memory-restart");
+
+    let firstCard = null;
+    let secondCard = null;
+    let lockBoard = false;
+    let tries = 0;
+    let matchedPairs = 0;
+    let totalPairs = photosForMemory.length;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function setupMemoryGame() {
+      memoryGrid.innerHTML = "";
+      firstCard = null;
+      secondCard = null;
+      lockBoard = false;
+      tries = 0;
+      matchedPairs = 0;
+      totalPairs = photosForMemory.length;
+      triesSpan.textContent = "Попыток: 0";
+      messageEl.textContent = "";
+
+      const cardsData = shuffle([...photosForMemory, ...photosForMemory]);
+
+      cardsData.forEach((photo) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.dataset.id = photo.id;
+
+        const inner = document.createElement("div");
+        inner.className = "card-inner";
+
+        const front = document.createElement("div");
+        front.className = "card-face card-front";
+        front.textContent = "♡";
+
+        const back = document.createElement("div");
+        back.className = "card-face card-back";
+        const img = document.createElement("img");
+        img.src = photo.src;
+        img.alt = photo.alt;
+        back.appendChild(img);
+
+        inner.appendChild(front);
+        inner.appendChild(back);
+        card.appendChild(inner);
+
+        card.addEventListener("click", () => handleCardClick(card));
+        memoryGrid.appendChild(card);
+      });
+    }
+
+    function handleCardClick(card) {
+      if (lockBoard) return;
+      if (card.classList.contains("flipped") || card.classList.contains("matched")) return;
+
+      card.classList.add("flipped");
+
+      if (!firstCard) {
+        firstCard = card;
+        return;
+      }
+
+      secondCard = card;
+      tries++;
+      triesSpan.textContent = "Попыток: " + tries;
+
+      if (firstCard.dataset.id === secondCard.dataset.id) {
+        firstCard.classList.add("matched");
+        secondCard.classList.add("matched");
+        firstCard = null;
+        secondCard = null;
+        matchedPairs++;
+
+        if (matchedPairs === totalPairs) {
+          messageEl.textContent =
+            "Все пары совпали — как и мы с тобой. Игра засчитана ✅";
+          memoryDone = true;
+          updateGamesProgress();
+        }
+      } else {
+        lockBoard = true;
+        setTimeout(() => {
+          firstCard.classList.remove("flipped");
+          secondCard.classList.remove("flipped");
+          firstCard = null;
+          secondCard = null;
+          lockBoard = false;
+        }, 800);
+      }
+    }
+
+    restartBtn.addEventListener("click", setupMemoryGame);
+    setupMemoryGame();
+
+    // ===== Игра 2: квиз =====
+    const quizResultEl = document.getElementById("quiz-result");
+    const quizModal = document.getElementById("quiz-modal");
+    const quizStepEl = document.getElementById("quiz-step");
+    const quizNextBtn = document.getElementById("quiz-next");
+    const quizOpenBtn = document.getElementById("quiz-open");
+    const quizCloseBtn = document.getElementById("quiz-close");
+
+    const quizQuestions = [
+      {
+        text: "1. Когда мы познакомились?",
+        options: [
+          { label: "10 июня", correct: false },
+          { label: "20 июля", correct: true },
+          { label: "1 сентября", correct: false }
+        ]
+      },
+      {
+        text: "2. Мой любимый цвет?",
+        options: [
+          { label: "Серый", correct: true },
+          { label: "Синий", correct: false },
+          { label: "Красный", correct: false }
+        ]
+      },
+      {
+        text: "3. Твоё любимое ласковое слово?",
+        options: [
+          { label: "Жаны", correct: true },
+          { label: "Зая", correct: false },
+          { label: "Сладкая", correct: false }
+        ]
+      },
+      {
+        text: "4. Где мы первый раз поцеловались?",
+        options: [
+          { label: "У подъезда", correct: false },
+          { label: "В машине", correct: false },
+          { label: "На Буране", correct: true }
+        ]
+      },
+      {
+        text: "5. Кто я по знаку зодиака?",
+        options: [
+          { label: "Скорпион", correct: false },
+          { label: "Овен", correct: true },
+          { label: "Лев", correct: false }
+        ]
+      },
+      {
+        text: "6. Куда ты мечтала полететь на медовый месяц?",
+        options: [
+          { label: "Париж", correct: false },
+          { label: "Мальдивы", correct: true },
+          { label: "Бали", correct: false }
+        ]
+      },
+      {
+        text: "7. Моё любимое блюдо?",
+        options: [
+          { label: "Плов", correct: false },
+          { label: "Манты", correct: true },
+          { label: "Лагман", correct: false }
+        ]
+      },
+      {
+        text: "8. Почему ты меня любишь?",
+        options: [
+          { label: "Потому что чёрный", correct: true },
+          { label: "Потому что богатый", correct: false },
+          { label: "Потому что высокий", correct: false }
+        ]
+      },
+      {
+        text: "9. Кто в нашей паре смешнее?",
+        options: [
+          { label: "Ты", correct: false },
+          { label: "Я (Арсен)", correct: true },
+          { label: "Оба одинаково", correct: false }
+        ]
+      },
+      {
+        text: "10. Если бы сняли фильм про нас, это была бы…",
+        options: [
+          { label: "Драма", correct: false },
+          { label: "Комедия", correct: true },
+          { label: "Боевик", correct: false }
+        ]
+      },
+      {
+        text: "11. Если бы у нас был девиз, то какой?",
+        options: [
+          { label: "Всегда серьёзные и спокойные", correct: false },
+          { label: "Странные, но счастливые", correct: true },
+          { label: "Главное — поспать", correct: false }
+        ]
+      },
+      {
+        text: "12. Наш уровень адекватности?",
+        options: [
+          { label: "A) 100%", correct: false },
+          { label: "B) 50%", correct: false },
+          { label: "C) 10%", correct: false },
+          { label: "D) Отрицательный 😅", correct: true }
+        ]
+      }
+    ];
+
+    let quizCurrent = 0;
+    let quizCorrectState = [];
+    let quizAttempts = [];
+    let quizRevealCorrect = [];
+
+    function renderQuizStep() {
+      const q = quizQuestions[quizCurrent];
+      quizStepEl.innerHTML = `
+        <div class="quiz-question">${q.text}</div>
+        <div class="quiz-options">
+          ${q.options
+            .map(
+              (opt) => `
+            <label>
+              <input type="radio" name="quiz-option" data-correct="${opt.correct ? "true" : "false"}">
+              ${opt.label}
+            </label>
+          `
+            )
+            .join("")}
+        </div>
+        <div class="quiz-step-hint" id="quiz-step-hint"></div>
+      `;
+      quizNextBtn.textContent =
+        quizCurrent === quizQuestions.length - 1 ? "Завершить" : "Дальше";
+    }
+
+    function openQuizModal() {
+      quizCurrent = 0;
+      quizCorrectState = new Array(quizQuestions.length).fill(false);
+      quizAttempts = new Array(quizQuestions.length).fill(0);
+      quizRevealCorrect = new Array(quizQuestions.length).fill(false);
+      renderQuizStep();
+      quizModal.classList.add("open");
+    }
+
+    function closeQuizModal() {
+      quizModal.classList.remove("open");
+    }
+
+    quizOpenBtn.addEventListener("click", openQuizModal);
+    quizCloseBtn.addEventListener("click", closeQuizModal);
+    quizModal.addEventListener("click", (e) => {
+      if (e.target === quizModal) closeQuizModal();
+    });
+
+    quizNextBtn.addEventListener("click", () => {
+      const checked = quizStepEl.querySelector('input[name="quiz-option"]:checked');
+      const hint = document.getElementById("quiz-step-hint");
+      if (!checked) {
+        hint.textContent = "Сначала выбери вариант, а потом жми «Дальше» 💫";
+        return;
+      }
+
+      const isCorrect = checked.dataset.correct === "true";
+      const qIndex = quizCurrent;
+
+      if (isCorrect) {
+        quizCorrectState[qIndex] = true;
+        // идём дальше
+        if (quizCurrent < quizQuestions.length - 1) {
+          quizCurrent++;
+          renderQuizStep();
+        } else {
+          // финал
+          quizDone = true;
+          quizResultEl.textContent =
+            "Ты угадала всё, как будто читаешь меня с полуслова. Квиз засчитан ✅";
+          updateGamesProgress();
+          closeQuizModal();
+        }
+      } else {
+        quizAttempts[qIndex] += 1;
+        quizCorrectState[qIndex] = false;
+
+        if (quizAttempts[qIndex] === 1) {
+          hint.textContent = "Не совсем, попробуй ещё раз 💫";
+          checked.checked = false;
+        } else if (quizAttempts[qIndex] === 2 && !quizRevealCorrect[qIndex]) {
+          hint.textContent = "Вот этот правильный, давай ещё раз подумаем 😊";
+          const correctInput = quizStepEl.querySelector(
+            'input[name="quiz-option"][data-correct="true"]'
+          );
+          if (correctInput) {
+            const label = correctInput.closest("label");
+            if (label) {
+              label.classList.add("quiz-correct-hint");
+            }
+          }
+          checked.checked = false;
+          quizRevealCorrect[qIndex] = true;
+        } else {
+          // После того как показали правильный, всё равно ждём,
+          // пока она сама нажмёт правильный вариант.
+          hint.textContent = "Теперь уже видно, какой вариант правильный 😉";
+          checked.checked = false;
+        }
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && quizModal.classList.contains("open")) {
+        closeQuizModal();
+      }
+    });
+
+    // ===== Игра 3: фразы =====
+    const phraseLevels = [
+      { words: ["Ты", "моя", "самая", "тихая", "радость"] },
+      { words: ["Мы", "странные", "но", "счастливые"] },
+      { words: ["Ты", "моя", "главная", "поддержка"] },
+      { words: ["С", "тобой", "даже", "хаос", "становится", "уютным"] },
+      { words: ["Иногда", "ты", "злишься", "но", "я", "всё", "равно", "люблю"] },
+      { words: ["Ты", "мой", "человек", "в", "любую", "погоду"] },
+      { words: ["С", "нами", "всегда", "немного", "цирка", "но", "много", "любви"] },
+      { words: ["Мне", "повезло", "что", "ты", "зашла", "в", "мою", "жизнь"] },
+      { words: ["Ты", "моё", "самое", "любимое", "случайное", "совпадение"] },
+      { words: ["Странные", "но", "счастливые", "это", "точно", "про", "нас"] }
+    ];
+
+    const phraseModal = document.getElementById("phrase-modal");
+    const phraseOpenBtn = document.getElementById("phrase-open");
+    const phraseCloseBtn = document.getElementById("phrase-close");
+    const phraseTarget = document.getElementById("phrase-target");
+    const phraseWordsBox = document.getElementById("phrase-words");
+    const phraseResultOutside = document.getElementById("phrase-result");
+    const phraseResultModal = document.getElementById("phrase-result-modal");
+    const phraseResetBtn = document.getElementById("phrase-reset");
+
+    let currentPhrase = [];
+    let phraseLevelIndex = 0;
+
+    function openPhraseModal() {
+      phraseModal.classList.add("open");
+    }
+
+    function closePhraseModal() {
+      phraseModal.classList.remove("open");
+    }
+
+    phraseOpenBtn.addEventListener("click", () => {
+      phraseLevelIndex = 0;
+      renderPhraseGame();
+      phraseResultOutside.textContent = "";
+      openPhraseModal();
+    });
+
+    phraseCloseBtn.addEventListener("click", closePhraseModal);
+    phraseModal.addEventListener("click", (e) => {
+      if (e.target === phraseModal) closePhraseModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && phraseModal.classList.contains("open")) {
+        closePhraseModal();
+      }
+    });
+
+    function renderPhraseGame() {
+      currentPhrase = [];
+      phraseTarget.innerHTML = "";
+      phraseWordsBox.innerHTML = "";
+      phraseResultModal.textContent = "";
+
+      const level = phraseLevels[phraseLevelIndex];
+      const shuffled = shuffle([...level.words]);
+
+      shuffled.forEach((word) => {
+        const btn = document.createElement("button");
+        btn.className = "chip";
+        btn.textContent = word;
+
+        btn.addEventListener("click", () => {
+          if (btn.disabled) return;
+          btn.disabled = true;
+          btn.classList.add("chip-used");
+
+          const span = document.createElement("span");
+          span.className = "chip chip-target";
+          span.textContent = word;
+
+          span.addEventListener("click", () => {
+            phraseTarget.removeChild(span);
+            btn.disabled = false;
+            btn.classList.remove("chip-used");
+            const idx = currentPhrase.indexOf(word);
+            if (idx !== -1) currentPhrase.splice(idx, 1);
+            phraseResultModal.textContent = "";
+          });
+
+          phraseTarget.appendChild(span);
+          currentPhrase.push(word);
+
+          const levelNow = phraseLevels[phraseLevelIndex];
+          const correctWordsNow = levelNow.words;
+          const index = currentPhrase.length - 1;
+
+          if (word === correctWordsNow[index]) {
+            span.classList.add("chip-correct");
+          } else {
+            span.classList.add("chip-wrong");
+          }
+
+          checkPhrase();
+        });
+
+        phraseWordsBox.appendChild(btn);
+      });
+    }
+
+    function checkPhrase() {
+      const level = phraseLevels[phraseLevelIndex];
+      const correctWords = level.words;
+
+      if (currentPhrase.length !== correctWords.length) return;
+
+      const allCorrect = correctWords.every((w, i) => w === currentPhrase[i]);
+      const spans = [...phraseTarget.children];
+
+      if (allCorrect) {
+        spans.forEach((span) => {
+          span.classList.remove("chip-wrong");
+          span.classList.add("chip-correct");
+        });
+
+        phraseResultModal.textContent =
+          "Фраза сложена правильно — именно так я тебя и чувствую.";
+        phraseResultOutside.textContent =
+          `Фраза ${phraseLevelIndex + 1}/${phraseLevels.length} собрана ✅`;
+
+        if (phraseLevelIndex === phraseLevels.length - 1) {
+          phraseDone = true;
+          phraseResultOutside.textContent =
+            "Все десять фраз про нас собраны. Игра засчитана ✅";
+          updateGamesProgress();
+        } else {
+          setTimeout(() => {
+            phraseLevelIndex++;
+            renderPhraseGame();
+          }, 1000);
+        }
+      } else {
+        spans.forEach((span) => {
+          span.classList.remove("chip-correct");
+          span.classList.add("chip-wrong");
+        });
+        phraseResultModal.textContent =
+          "Не то, давай ещё раз 😉";
+
+        setTimeout(() => {
+          renderPhraseGame();
+        }, 900);
+      }
+    }
+
+    phraseResetBtn.addEventListener("click", renderPhraseGame);
+
+    // ===== Сброс прогресса по сердечку =====
+    function resetProgress() {
+      memoryDone = false;
+      quizDone = false;
+      phraseDone = false;
+
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch (e) {}
+
+      gamesProgressEl.textContent = "Прогресс к письму: 0/3 игр";
+      letterSection.classList.remove("unlocked");
+      letterSection.classList.add("locked");
+      letterHint.textContent = INITIAL_LETTER_HINT;
+      closeLetterOverlay();
+
+      // сброс текстов
+      messageEl.textContent = "";
+      quizResultEl.textContent = "";
+      phraseResultOutside.textContent = "";
+      phraseResultModal.textContent = "";
+
+      // перезапуск первой игры
+      setupMemoryGame();
+    }
+
+    resetHeartBtn?.addEventListener("click", resetProgress);
+
+    // финальный апдейт с учётом сохранённого прогресса
+    updateGamesProgress();
+  </script>
+</body>
+</html>
